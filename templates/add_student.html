@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Add a New Student
+{% endblock %}
+
+{% block content %}
+    <form action='/process_add' method='POST'>
+        <label for="field-first-name">Enter the student's first name:</label>
+            <input type="text" name="first-name" id="field-first-name" />
+            <br>
+        <label for="field-last-name">Enter the student's last name:</label>
+            <input type="text" name="last-name" id="field-last-name" />
+            <br>
+        <label for="field-github">Enter the student's github username:</label>
+            <input type="text" name="github" id="field-github" />
+            <br>
+        <input type="submit" />
+    </form>
+{% endblock %}
