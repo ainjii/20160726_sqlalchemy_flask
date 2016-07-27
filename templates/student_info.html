@@ -1,11 +1,19 @@
-<!doctype html>
-<html>
-    <head>
-        <title>Student Info</title>
-    </head>
-    <body>
-        <h1>{{ first }} {{ last }}</h1>
+{% extends 'base.html' %}
 
-        <p>GitHub Account: {{ github }}</p>
-    </body>
-</html>
+{% block title %}
+    Student Project Grades
+{% endblock %}
+
+{% block content %}
+    Student: {{ first }} {{ last }} <br/>
+    Github Username: {{ github }}
+
+    {% if project_grades %}
+        <ul>
+            {% for project in project_grades %}
+                <li>Project: {{ project[0] }}, Grade: {{ project[1] }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock %}

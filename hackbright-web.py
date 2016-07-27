@@ -11,11 +11,13 @@ def get_student():
 
     github = request.args.get('github', 'jhacks')
     first, last, github = hackbright.get_student_by_github(github)
+    project_grades = hackbright.get_grades_by_github(github)
 
     return render_template("student_info.html",
                            first=first,
                            last=last,
-                           github=github)
+                           github=github,
+                           project_grades=project_grades)
 
 
 @app.route("/student_form")
@@ -28,12 +30,14 @@ def get_student_form():
 @app.route("/add_student")
 def add_student():
     """Display form to add a student to the student table in our database."""
+    
     return render_template("add_student.html")
 
 
 @app.route("/process_add", methods=["POST"])
 def add_student_to_db():
     """Process the addition to our db and redirect to the student info page."""
+    
     first_name = request.form.get('first-name')
     last_name = request.form.get('last-name')
     github = request.form.get('github')
