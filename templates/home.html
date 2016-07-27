@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    HOMEPAGE!!!
+{% endblock %}
+
+{% block content %}
+    {% if students %}
+        <h1><u>Students</u></h1>
+        <ul>
+            {% for student in students %}
+                <li>
+                    <a href='/student?github={{ student[2] }}'>
+                        {{ student[0] }} {{ student[1] }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if projects %}
+        <h1><u>Projects</u></h1>
+        <ul>
+            {% for project in projects %}
+                <li>
+                    <a href='/project?title={{ project[0] }}'>
+                        {{ project[0] }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

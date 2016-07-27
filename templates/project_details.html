@@ -8,4 +8,16 @@
     Project Title: {{ title }}<br/>
     Project Description: {{ description }}<br/>
     Maximum Grade: {{ max_grade }}
+
+    {% if student_grades %}
+        <ul>
+            {% for student in student_grades %}
+                <li><a href="/student?github={{student[0]}}">
+                        {{ student[0] }}
+                    </a>
+                    Grade: {{ student[1] }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}
