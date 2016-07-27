@@ -69,6 +69,18 @@ def student_add_success():
     return render_template("student_add_success.html",
                            github=github)
 
+@app.route('/add_project')
+def add_project():
+    """ Show create project form """
+
+    return render_template("create_project.html")
+
+@app.route("/process_project_add", methods=["POST"])
+def add_project_to_db():
+    """Process the addition to our db and redirect to project info page """
+    
+
+
 
 @app.route('/project')
 def show_project():

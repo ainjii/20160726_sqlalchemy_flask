@@ -145,6 +145,14 @@ def get_all_projects():
 
     return rows
 
+def add_project(title, description, max_grade):
+    """Add project to db """
+
+    QUERY = """
+        INSERT INTO Projects (title, description, max_grade)
+        VALUES (:title, :description, :max_grade)
+        """
+
 def handle_input():
     """Main loop.
 
